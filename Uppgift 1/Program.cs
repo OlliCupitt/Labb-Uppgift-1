@@ -4,13 +4,7 @@ class Program
     static void Main(string[] args)
     {
 
-
-
-
-
-
         string input = "29535123p48723487597645723645";
-
 
         // översätting till char så att man kan välja individuella characterer
         char[] charArray = input.ToCharArray();
@@ -18,7 +12,6 @@ class Program
         int x = charArray.Length;
         int i = 0;
        
-
         do
         {
             if (char.IsDigit(charArray[i]))
@@ -58,15 +51,10 @@ class Program
         }
         while (x >= i);
 
-
-
-
-
-
     }
     public static void characterhighlight(int i, int j, string input)
     {
-        string Selectedhighlight = ($"{input.Substring(i, j - i + 1)}");
+        string Selectedhighlight = ($"{input.Substring(i, j - i + 1)}");    
         Console.Write($"{input.Substring(0, i)}");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(Selectedhighlight);
@@ -76,3 +64,5 @@ class Program
     }
 
 }
+
+
