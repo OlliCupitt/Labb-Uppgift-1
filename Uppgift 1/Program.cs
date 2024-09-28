@@ -17,7 +17,7 @@ class Program
         // length för while break
         int x = charArray.Length;
         int i = 0;
-
+       
 
         do
         {
@@ -40,9 +40,9 @@ class Program
                                     break;
                                 }
                             }
-                            if (stringcheck = true)
+                            if (stringcheck)
                             {
-                                Console.WriteLine($"{input.Substring(i, j - i + 1)}");
+                                characterhighlight(i, j, input);
                             }
                             break;
                         }
@@ -59,14 +59,20 @@ class Program
         while (x >= i);
 
 
-       
-       
 
-        
+
+
+
     }
-    public void characterhighlight(string highlight)
-    { 
-    
+    public static void characterhighlight(int i, int j, string input)
+    {
+        string Selectedhighlight = ($"{input.Substring(i, j - i + 1)}");
+        Console.Write($"{input.Substring(0, i)}");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(Selectedhighlight);
+        Console.ResetColor();
+        Console.WriteLine($"{input.Substring(j, input.Length - j)}");
+
     }
 
 }
