@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         //Console.Write("input you chosen sequence then press enter: ");
-        //string input =Console.ReadLine();
+        //string input = Console.ReadLine();
         string input = "29535123p48723487597645723645";
 
         // Convert string to char array to easily access individual characters.
@@ -16,8 +16,6 @@ class Program
         int i = 0;
         long sum = 0;
         
-
-
         do                                                          // do while loop för att välja första character i Array
         {
             if (char.IsDigit(charArray[i]))                         // if statement to check if it is a digit, if not do loop jumps to next character in Array
@@ -41,18 +39,15 @@ class Program
                             }
                             if (stringcheck)                                                   // If no issues were found, highlight and sum the valid sequence.
                             {                                                 
-                                             
                                 characterhighlight(i, j, input);                               // calling on the methods characterhighlight & Selectedsum  
-                               string selectedsubstring = input.Substring(i, j - i + 1);       // Extract the valid substring and add it to the sum.
+                                string selectedsubstring = input.Substring(i, j - i + 1);      // Extract the valid substring and add it to the sum.
 
                                 sum += SelectedSum(selectedsubstring);
-                              
-                               
                             }
-                            break;                                                     // break after a correct sequence is found
+                            break;                                                  // break after a correct sequence is found
                         }
                     }
-                    else                                                               // if j is not a digit the loop is broken
+                    else                                                            // if j is not a digit the loop is broken
                     {
                         break;
                     }
@@ -71,23 +66,15 @@ class Program
         Console.ForegroundColor = ConsoleColor.Red;                                // colour change (highlight)
         Console.Write(Selectedhighlight);                                          // sequence print 
         Console.ResetColor();                                                      // colour reset to not change the rest of the console colour
-        Console.WriteLine($"{input.Substring(j, input.Length - j)}");              // last part of string print j - x
-
-
-
+        Console.WriteLine($"{input.Substring(j + 1, input.Length - (j + 1))}");              // last part of string print j - x
     }
-
     public static long SelectedSum(string selectedHighlight)                       // creating of the method Selectedsum 
     {
-
-
         if (long.TryParse(selectedHighlight, out long number))                     // converting the chosen sequence from the loop to a long
         {                                                                          
-
-            return number;                                                         // sum addition
+          return number;                                                           // sum addition
         }
-        
-        return 0;                                                                  // if it can not be parsed the sum will retun to zero
+          return 0;                                                                // if it can not be parsed the sum will retun to zero
     }
 }
 
