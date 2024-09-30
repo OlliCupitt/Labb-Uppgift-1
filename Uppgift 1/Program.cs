@@ -7,31 +7,28 @@ class Program
         //Console.Write("input you chosen sequence then press enter: ");
         //string input = Console.ReadLine();
         string input = "29535123p48723487597645723645";
-
-        // Convert string to char array to easily access individual characters.
-        char[] charArray = input.ToCharArray();
-        // length för while break criteria 
+        
         // definiera variables som kommer behövas i senare loops
-        int length = charArray.Length;
+        int length = input.Length;
         int i = 0;
         long sum = 0;
         
         do                                                          // do while loop för att välja första character i Array
         {
-            if (char.IsDigit(charArray[i]))                         // if statement to check if it is a digit, if not do loop jumps to next character in Array
+            if (char.IsDigit(input[i]))                             // if statement to check if it is a digit, if not do loop jumps to next character in Array
             {
-                char startchar = charArray[i];                      // saving first character and identifying it as startchar to use to compare later
+                char startchar = input[i];                          // saving first character and identifying it as startchar to use to compare later
                 bool stringcheck = true;                            // setting a stingcheck to use for identifying errors between i & j 
 
                 for (int j = i + 1; j < length; j++)                // for loop to check startchar(i) against the next character in the array and so on (j++)
                 { 
-                    if (char.IsDigit(charArray[j]))                 // if statement to check that j is a digit for the for loop 
+                    if (char.IsDigit(input[j]))                     // if statement to check that j is a digit for the for loop 
                     {
-                        if (charArray[j] == startchar)              // if statement to compare startchar to j
+                        if (input[j] == startchar)                  // if statement to compare startchar to j
                         {
                             for (int k = i + 1; k < j; k++)         // Check the digits between i and j to ensure no repeated startchar.
                             {
-                                if (charArray[k] == startchar)      // checking startchar against k, if this is true the loop will set stringcheck to 
+                                if (input[k] == startchar)          // checking startchar against k for repeated chars, if this is true the loop will set stringcheck to 
                                 {                                   // false and break the loop and restart.
                                     stringcheck = false;            
                                     break;
